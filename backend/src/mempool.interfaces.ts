@@ -299,6 +299,7 @@ export interface BlockExtension {
     id: number; // Note - This is the `unique_id`, not to mix with the auto increment `id`
     name: string;
     slug: string;
+    minerNames: string[] | null;
   };
   avgFee: number;
   avgFeeRate: number;
@@ -319,10 +320,13 @@ export interface BlockExtension {
   segwitTotalSize: number;
   segwitTotalWeight: number;
   header: string;
+  firstSeen: number | null;
   utxoSetChange: number;
   // Requires coinstatsindex, will be set to NULL otherwise
   utxoSetSize: number | null;
   totalInputAmt: number | null;
+  // pools-v2.json git hash
+  definitionHash: string | undefined;
 }
 
 /**
